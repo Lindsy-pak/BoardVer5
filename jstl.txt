@@ -1,0 +1,58 @@
+Jstl 문법 사용
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+jJDBC설치 Maven  - db 연결 시스템
+
+build path - facet - java 1.8 version 으로 바꾸기
+---------------------------
+Tomcat xml파일 수정 방법
+
+<!-- 한글설정 필터추가 --> 
+<filter> 
+<filter-name>Set Character Encoding</filter-name> 
+<filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class> 
+<init-param>
+ <param-name>encoding</param-name> 
+ <param-value>UTF-8</param-value> 
+</init-param> 
+</filter> 
+<filter-mapping> 
+<filter-name>Set Character Encoding</filter-name> 
+<url-pattern>/*</url-pattern> 
+</filter-mapping> 
+<!-- 한글설정 END -->
+
+----------------------------
+ 
+
+1. Dynamic Project 생성
+2. Jstl 문법문구, UTF-8인코딩 설정
+3. Tomcat서버에서 내가 만든 프로젝트 서버에 add해주기, module에서 /로 만들어 주기
+build path - project facets - java 1.8 version 으로 바꾸기 
+4. WEB-INF안에 폴더 만들어주기, src안에 Utils, Model, Servlet패키지 만들어주기 
+5 .
+6. mysql에서 table 생성하기
+7.
+
+JRE system 라이브러리 1.8버전으로 바꿔주기build path- facet
+
+---------------------------------
+이클립스에서 제네릭 에디터로 열리게 하는법 (컬러 키워드가 안먹힐때)
+Window - Preferences - File Associations - Add - *.js - 하단 Generic Text Editor 클릭 - Default 클릭
+
+---------------------------------
+캐시 때문에 안되는 경우 (스트립트 수정해도 안될때 )
+- 시크릿 모드로 한다. 
+시크릿모드로 해도 안됐을 때 import한 파일에다가 뒤에 ? ver=1적어준다 
+아니면 캐시를 삭제했다가 다시 해준다. 
+
+-----------------------------------
+
+
+컬러코: https://htmlcolorcodes.com/
+그라이언트: https://gradient.shapefactory.co/?a=1B00F5&b=F7B781&d=22
+https://uigradients.com/#BlueRaspberry
+폰트 : https://fonts.google.com/
+https://www.codingfactory.net/10616
+css : https://webclub.tistory.com/235

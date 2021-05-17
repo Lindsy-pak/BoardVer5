@@ -1,0 +1,58 @@
+20210517
+
+select A.iboard, A.title, A.iuser, A.regdt, B.unm
+from t_board A
+inner join t_user B
+on A.iuser = B.iuser
+order by iboard desc;
+
+요즘에는 대댓글 보다는 태그해서 하는 경우가 많다
+
+
+CREATE TABLE t_board_cmt (
+	icmt INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	iboard INT UNSIGNED ,
+	iuser INT UNSIGNED,
+	cmt VARCHAR(400) NOT NULL,
+	regdate DATE DEFAULT NOW() ,
+	FOREIGN KEY (iboard) REFERENCES t_board(iboard),
+	FOREIGN KEY (iuser) REFERENCES t_user(iuser)	
+);
+
+iboard에 pk를 주면 게시글에 한번 밖에 댓글을 달지 못한다 
+iuser에 pk를 주면 사용자가 댓글은 전체()에서 한번 밖에 달지 못한다. 
+primary key (iboard, iuser) -> pk키를 글 하나당 한사람이 글 한번밖에 못씀 
+왜냐하면 중복이(데이터) 되면 안되기 때문이다. 
+좋아요는 위처럼 해야한다 (한사람이 한번 좋아요 눌러줄 수 있기 때문에)
+외부키 걸려있으면 삭제할 때 참조 하나라도 잇으면 삭제 수정이 불편하다 
+iboard iuser 같이 pk걸면 게시글당 한 댓글 밖에 쓰지 못한다 (1, 1) (1,1) x
+
+RESTful : 자바로 따지면 오버로딩 같은 기능
+
+내장객체 pageContext < request < session < application
+1. pageContext
+2. request
+3. session
+4. application
+setAttribute, getAttribute할 수 있는 내장객체는 4개뿐이다. 
+
+
+캐시 때문에 안되는 경우 (스트립트 수정해도 안될때 )
+- 시크릿 모드로 한다. 
+시크릿모드로 해도 안됐을 때 import한 파일에다가 뒤에 ? ver=1적어준다 
+아니면 캐시를 삭제했다가 다시 해준다. 
+
+
+내가 쓴 댓글에 수정과 삭제를 할 수 있도록 
+
+form안에서 <button>을 쓰면 submit 의 의미를 내포하고 있다 그래서 <input>으로 적는게
+나을 수도 있다. 버튼이 트리거 역할을 하기 때문
+
+html에서는 iuser값을 받아올수 없다 무조건 서블릿에 있는 세션에서 가져와야한다 !!!!
+
+delete from t_board_cmt 
+where icmt = 4 and iuser = 6;
+and를 쓰면 둘다 맞아야 삭제가 된다. 
+
+
+confirm은 모든 브라우저에 있는 내장함수이다. 
